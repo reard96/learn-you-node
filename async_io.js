@@ -1,8 +1,10 @@
 const fs = require('fs');
 
 function doneReading(error, file) {
-  if (error) return console.error(error);
-  return file;
+  if (error) {
+    return console.log(error);
+  }
+  console.log(file.split('\n').length - 1);
 }
 
-console.log(fs.readFile(process.argv[2], 'utf8', doneReading));
+fs.readFile(process.argv[2], 'utf8', doneReading);
